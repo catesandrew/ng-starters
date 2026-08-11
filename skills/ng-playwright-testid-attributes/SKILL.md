@@ -138,7 +138,7 @@ Create one todo per invariant. Each is independently verifiable.
    `debounceTime(80), distinctUntilChanged()` and lands the result in a Signal
    — `.subscribe((value) => this.query.set(value ?? ''))`
    (`libs/pinnacle/src/lib/cmdk/cmdk.component.ts:75-78`, with
-   `query = signal<string>('')` at line 46) — which is precisely the
+   `query = signal<string>('')` at line 47) — which is precisely the
    raw-vs-settled split, with the raw value living in the `FormControl` and
    the settled value in the Signal. What's absent today is the third stage
    (applied) and the exposure of all three as attributes; that part is
@@ -200,9 +200,9 @@ Create one todo per invariant. Each is independently verifiable.
    component in `@if`.** Angular's `@if` genuinely destroys its embedded view
    and removes those DOM nodes, reproducing the React/Radix unmount problem
    exactly. This is not hypothetical: of 215 `<lib-modal-popup>` usages across
-   `apps/` and `libs/`, 72 sit directly inside an `@if` block (for example
+   `apps/` and `libs/`, 73 sit directly inside an `@if` block (for example
    `apps/arcOS-admin/src/pages/smart-fund/smart-fund.component.html:116-117`
-   and `:135-136`), while 143 are mounted unconditionally (for example
+   and `:135-136`), while 142 are mounted unconditionally (for example
    `apps/arcOS-admin/src/pages/pre-approval-campaign/components/applicant-form/applicant-form.component.html:274`).
    So roughly a third of real usages *do* unmount on close. When your usage is
    one of those, render a separate, always-mounted (visually hidden) element

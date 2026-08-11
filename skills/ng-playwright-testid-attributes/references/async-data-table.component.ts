@@ -3,6 +3,17 @@ import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounce, distinctUntilChanged, startWith, timer } from 'rxjs';
 
+// In a real app this constant is imported from the typed testid catalog
+// described in the sibling skill `ng-playwright-testid-catalog` (invariant 8:
+// never hand-write a data-testid string literal). It's inlined here as a
+// small mock so this reference file typechecks standalone.
+const TESTIDS = {
+  asyncDataTable: 'async-data-table',
+  asyncDataTableSearch: 'async-data-table-search',
+  asyncDataTableEmpty: 'async-data-table-empty',
+  asyncDataTableRow: (id: string) => `async-data-table-row-${id}`
+} as const;
+
 export type SearchState = 'idle' | 'pending' | 'loading' | 'ready';
 
 export interface Row {
@@ -30,6 +41,8 @@ export interface Row {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AsyncDataTableComponent {
+  protected readonly testIds = TESTIDS;
+
   readonly fetchRows = input.required<(query: string) => Promise<Row[]>>();
   readonly debounceMs = input(300);
 

@@ -10,7 +10,7 @@
 <input
   type="text"
   [formControl]="searchControl"
-  [attr.data-testid]="'async-data-table-search'"
+  [attr.data-testid]="testIds.asyncDataTableSearch"
   [attr.data-search-typed]="typedValue()"
   [attr.data-search-settled]="settledValue()"
   [attr.data-search-applied]="appliedValue()"
@@ -24,7 +24,7 @@
   it always writes "true"/"false" rather than being removed by a null.
 -->
 <table
-  [attr.data-testid]="'async-data-table'"
+  [attr.data-testid]="testIds.asyncDataTable"
   [attr.data-load-state]="loadState()"
   [attr.aria-busy]="isLoading()"
   [attr.data-selected-count]="selectedIds().length"
@@ -33,14 +33,14 @@
   <tbody>
     @for (row of rows(); track row.id) {
       <tr
-        [attr.data-testid]="'async-data-table-row-' + row.id"
+        [attr.data-testid]="testIds.asyncDataTableRow(row.id)"
         [attr.aria-selected]="selectedIds().includes(row.id)"
         (click)="toggleRow(row.id)"
       >
         <td>{{ row.label }}</td>
       </tr>
     } @empty {
-      <tr [attr.data-testid]="'async-data-table-empty'">
+      <tr [attr.data-testid]="testIds.asyncDataTableEmpty">
         <td>No results</td>
       </tr>
     }
