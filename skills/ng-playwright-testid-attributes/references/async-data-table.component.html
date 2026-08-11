@@ -1,0 +1,48 @@
+<!--
+  Invariant 5 — three pipeline stages exposed as three separate attributes,
+  plus the derived four-state machine.
+
+  Collapsing these into a single boolean (e.g. `isSearching`) would hide the
+  difference between "typed but not yet debounced" (pending) and "debounced
+  but not yet applied to the fetch" (loading). A test that only checks a
+  boolean cannot tell those two apart, and will assert against stale rows.
+-->
+<input
+  type="text"
+  [formControl]="searchControl"
+  [attr.data-testid]="'async-data-table-search'"
+  [attr.data-search-typed]="typedValue()"
+  [attr.data-search-settled]="settledValue()"
+  [attr.data-search-applied]="appliedValue()"
+  [attr.data-search-state]="searchState()"
+/>
+
+<!--
+  Invariants 1-3 and 6 on the table itself. `data-load-state` and `aria-busy`
+  are both driven from the same `isFetching` signal, so they can never
+  disagree; `aria-busy` is bound from a computed returning a real boolean, so
+  it always writes "true"/"false" rather than being removed by a null.
+-->
+<table
+  [attr.data-testid]="'async-data-table'"
+  [attr.data-load-state]="loadState()"
+  [attr.aria-busy]="isLoading()"
+  [attr.data-selected-count]="selectedIds().length"
+  [attr.data-selected-ids]="selectedIdsJson()"
+>
+  <tbody>
+    @for (row of rows(); track row.id) {
+      <tr
+        [attr.data-testid]="'async-data-table-row-' + row.id"
+        [attr.aria-selected]="selectedIds().includes(row.id)"
+        (click)="toggleRow(row.id)"
+      >
+        <td>{{ row.label }}</td>
+      </tr>
+    } @empty {
+      <tr [attr.data-testid]="'async-data-table-empty'">
+        <td>No results</td>
+      </tr>
+    }
+  </tbody>
+</table>

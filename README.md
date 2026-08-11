@@ -29,5 +29,8 @@ being ported from the same skill methodology.
 
 ## Status
 
-This is the bootstrap commit. `skills/` is currently empty; each of the four
-`ng-playwright-*` skills above will be added in a subsequent change.
+All four `ng-playwright-*` skills are present under `skills/`, each ported
+from its `next-starters` counterpart and grounded in real research against
+a live Angular 21+ codebase (see each skill's own `SKILL.md` for its
+citations). Not yet installed globally — see each skill's `README.md` for
+the install command.

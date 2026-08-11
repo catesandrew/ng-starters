@@ -1,0 +1,82 @@
+<!--
+  Invariant 7 — sentinel placement, and its limit.
+
+  Pinnacle's `lib-modal-popup` does NOT unmount on close: its template renders
+  unconditionally and only toggles a `.is-open` host class, so state attributes
+  on the modal itself survive a close. The sentinel below lives outside THIS
+  component's own `@if (isOpen())` block (line 48) — it is a sibling of that
+  block, at the template root — so it survives every open/close cycle driven
+  by `isOpen()`.
+
+  That placement is sufficient ONLY when a consumer mounts this component
+  unconditionally, e.g. `<app-async-details-modal [itemId]="..." />` with no
+  wrapping `@if`. It is NOT sufficient when a consumer instead writes:
+
+      @if (selectedItemId()) {
+        <app-async-details-modal [itemId]="selectedItemId()" />
+      }
+
+  ...because Angular's `@if` genuinely destroys the embedded view — the whole
+  component instance, sentinel included — reproducing the React/Radix unmount
+  problem one level up. About a third of real `<lib-modal-popup>` usages in
+  arcos-web are shaped this way. There is no fix for this INSIDE the child
+  component: a sentinel can only outlive the boundary that unmounts it if it
+  is declared OUTSIDE that boundary. The consumer must place its own sentinel
+  as a sibling of its `@if`, tracking the last-known state independently:
+
+      @if (selectedItemId()) {
+        <app-async-details-modal [itemId]="selectedItemId()" />
+      }
+      <div
+        [attr.data-testid]="'item-details-modal-consumer-sentinel'"
+        [attr.data-state]="lastKnownModalState()"
+        aria-hidden="true"
+        hidden
+      ></div>
+
+  The trap this invariant exists to name: a sentinel placed INSIDE a
+  boundary that can unmount it (a consumer's `@if`, or this component's own
+  internal `@if` gates) dies alongside the thing it was meant to outlive. It
+  must live outside every such boundary that could remove it — which may mean
+  outside more than one component, not just outside one `@if` block.
+-->
+<div
+  [attr.data-testid]="testIds.itemDetailsModal + '-sentinel'"
+  [attr.data-state]="dataState()"
+  [attr.data-load-state]="loadState()"
+  aria-hidden="true"
+  hidden
+></div>
+
+<!--
+  Invariants 1-4 on the modal itself.
+
+  Note `data-state` is bound from the same `dataState()` computed as the
+  sentinel — not the string literal 'open' — so the two can never disagree,
+  and a test reading either one gets the same answer.
+-->
+<div
+  role="dialog"
+  [attr.aria-modal]="isOpen()"
+  [attr.data-testid]="testIds.itemDetailsModal"
+  [attr.data-state]="dataState()"
+  [attr.data-load-state]="loadState()"
+  [attr.data-refresh-epoch]="refreshEpoch()"
+  [attr.aria-busy]="isLoading()"
+>
+  @if (isOpen()) {
+    <button type="button" (click)="onClose()">Close</button>
+    <button type="button" [disabled]="isLoading()" (click)="onRefresh()">Refresh</button>
+
+    @if (loadState() === 'error') {
+      <p role="alert">{{ error() }}</p>
+    }
+
+    @if (loadState() === 'ready' && item(); as details) {
+      <div>
+        <h2>{{ details.name }}</h2>
+        <p>{{ details.description }}</p>
+      </div>
+    }
+  }
+</div>

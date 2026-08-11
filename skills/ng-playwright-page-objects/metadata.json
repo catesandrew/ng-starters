@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "organization": "Personal",
+  "date": "August 2026",
+  "abstract": "Defines the class structure and selector/wait discipline for Playwright Page Object classes targeting an Angular app: a shared BasePage contract (route, constructor(page: Page), navigate()), get-accessor locators, and verify* assertion methods that assert internally instead of returning a boolean. Specifies a role-then-label-then-testid-then-CSS selector priority ladder, action methods that call named readiness-wait helpers instead of a bare waitForTimeout(), a deterministic one-file-per-route naming rule, and a hard boundary keeping business/domain flow logic out of page objects. Encodes 6 invariants plus reference templates for a shared BasePage class and a before/after example page object.",
+  "references": [
+    "skills/ng-playwright-page-objects/references/BasePage.ts",
+    "skills/ng-playwright-page-objects/references/ExampleDataTablePage.ts"
+  ]
+}

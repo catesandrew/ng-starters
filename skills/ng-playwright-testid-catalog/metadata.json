@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "organization": "Personal",
+  "date": "August 2026",
+  "abstract": "Ports the next-starters playwright-testid-catalog skill to Angular. Builds a single typed data-testid catalog per feature area instead of scattering string literals across Angular components and Playwright specs. A shared createTestIdRegistry helper builds a nested, as-const catalog object keyed by view/section (list/detail/create/edit/dialogs) with a documented element-suffix vocabulary, and validates id uniqueness at dev-time by throwing on duplicate leaf values. A Playwright-side mirror module re-exports the identical catalog object so app and test code can never drift apart on an id string, and dynamic per-row ids follow a prefix-${id} convention with an optional reverse-parse fallback. The registry/mirror mechanics are pure TypeScript with no framework dependency, so they are carried over unchanged from the React/Next.js original; only the component-binding illustration is adapted to Angular's [attr.data-testid] template-binding syntax. Encodes 7 invariants plus reference templates for the registry helper, an example feature catalog, and its Playwright mirror.",
+  "references": [
+    "skills/ng-playwright-testid-catalog/references/utils.ts",
+    "skills/ng-playwright-testid-catalog/references/example-catalog.ts",
+    "skills/ng-playwright-testid-catalog/references/example-catalog.mirror.ts"
+  ]
+}

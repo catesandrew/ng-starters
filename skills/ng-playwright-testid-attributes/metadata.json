@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "organization": "Personal",
+  "date": "August 2026",
+  "abstract": "Ports the next-starters playwright-testid-attributes skill to Angular. Instruments Angular components — modals, drawers, and async data tables — with data-*/aria-* attributes bound through [attr.*] from the exact same Signal driving the render, so Playwright can assert on state transitions instead of racing timeouts. Covers the data-state/data-load-state/aria-busy baseline pair, epoch counters for repeatable async actions, the four-stage debounced-search attribute pattern, JSON-stringified identity attributes memoized in a computed(), the @if-unmount hazard and correct sentinel placement, and preferring ARIA attributes over bespoke data-* equivalents. Unlike the sibling ports in this family, this skill required real Angular rework rather than a rename, and the rewrite is grounded in source research against a production Angular 21 + Pinnacle codebase rather than blind translation: the Signal-to-[attr.*] binding idiom is cited from dropdown, text-area, typeahead, and app-level components; the debounce and monotonic-epoch patterns are cited from cmdk and ribbon-shell; and invariant 7 was re-derived from the compiled vendor modal, which — unlike the React original's Radix/shadcn assumption — does NOT unmount on close, making the hidden sentinel necessary only when a consumer's @if destroys the subtree (72 of 215 surveyed usages). Points where no in-codebase precedent existed are marked as translated rather than observed. Encodes 10 invariants plus reference components demonstrating the full pattern set.",
+  "references": [
+    "skills/ng-playwright-testid-attributes/references/async-details-modal.component.ts",
+    "skills/ng-playwright-testid-attributes/references/async-details-modal.component.html",
+    "skills/ng-playwright-testid-attributes/references/async-data-table.component.ts",
+    "skills/ng-playwright-testid-attributes/references/async-data-table.component.html"
+  ]
+}
