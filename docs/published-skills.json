@@ -1,1 +1,6 @@
-[]
+[
+  "@ng-starters/skill-ng-playwright-attribute-waits",
+  "@ng-starters/skill-ng-playwright-page-objects",
+  "@ng-starters/skill-ng-playwright-testid-attributes",
+  "@ng-starters/skill-ng-playwright-testid-catalog"
+]

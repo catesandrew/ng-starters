@@ -4,6 +4,6 @@
   "date": "August 2026",
   "abstract": "Provides the consumer-side helpers for waiting on data-*/aria-* state a component already exposes in an Angular target repo: a load-state gate that checks for a transient error flash before asserting ready, a close/unmount gate with a visibility fallback, epoch-fencing that polls for a strictly-advanced counter after an action, and a combined multi-attribute search-settle check. Encodes 9 invariants — most importantly, exactly one canonical readiness/locators helper module that every spec and page-object method imports rather than re-deriving a polling loop inline — plus guarded JSON parsing, named sentinels for known-bug outcomes, graceful degradation against uninstrumented components, and preferring an existing ARIA attribute over a bespoke data-* re-derivation. Assumes the attributes themselves are produced elsewhere; this skill only covers waiting on them correctly.",
   "references": [
-    "skills/ng-playwright-attribute-waits/references/readiness.ts"
+    "references/readiness.ts"
   ]
 }
