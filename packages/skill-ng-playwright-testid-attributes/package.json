@@ -1,0 +1,19 @@
+{
+  "name": "@ng-starters/skill-ng-playwright-testid-attributes",
+  "version": "1.0.0",
+  "description": "Ports the next-starters playwright-testid-attributes skill to Angular. Instruments Angular components — modals, drawers, and async data tables — with data-*/aria-* attributes bound through [attr.*]…",
+  "files": [
+    "SKILL.md",
+    "metadata.json",
+    "references/**",
+    "README.md",
+    "agents/**",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": true
+}

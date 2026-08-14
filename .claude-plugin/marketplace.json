@@ -1,0 +1,20 @@
+{
+  "name": "ng-starters",
+  "owner": {
+    "name": "Personal"
+  },
+  "plugins": [
+    {
+      "name": "ng",
+      "description": "4 skills, distributed via the ng plugin command prefix.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/ng-playwright-attribute-waits",
+        "./skills/ng-playwright-page-objects",
+        "./skills/ng-playwright-testid-attributes",
+        "./skills/ng-playwright-testid-catalog"
+      ]
+    }
+  ]
+}

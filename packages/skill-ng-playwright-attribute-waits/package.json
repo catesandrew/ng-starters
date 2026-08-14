@@ -1,0 +1,19 @@
+{
+  "name": "@ng-starters/skill-ng-playwright-attribute-waits",
+  "version": "1.0.0",
+  "description": "Provides the consumer-side helpers for waiting on data-*/aria-* state a component already exposes in an Angular target repo: a load-state gate that checks for a transient error flash before asserting…",
+  "files": [
+    "SKILL.md",
+    "metadata.json",
+    "references/**",
+    "README.md",
+    "agents/**",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": true
+}

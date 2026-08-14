@@ -1,0 +1,19 @@
+{
+  "name": "@ng-starters/skill-ng-playwright-page-objects",
+  "version": "1.0.0",
+  "description": "Defines the class structure and selector/wait discipline for Playwright Page Object classes targeting an Angular app: a shared BasePage contract (route, constructor(page: Page), navigate()),…",
+  "files": [
+    "SKILL.md",
+    "metadata.json",
+    "references/**",
+    "README.md",
+    "agents/**",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": true
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@ng-starters/skill-ng-playwright-testid-catalog",
+  "version": "1.0.0",
+  "description": "Ports the next-starters playwright-testid-catalog skill to Angular. Builds a single typed data-testid catalog per feature area instead of scattering string literals across Angular components and…",
+  "files": [
+    "SKILL.md",
+    "metadata.json",
+    "references/**",
+    "README.md",
+    "agents/**",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": true
+}
