@@ -12,7 +12,7 @@ needs to scale past a single README section.
 
 ## Goals
 
-- A hosted Docusaurus site (`ng-starters.catesdev.sh`, via Vercel) that
+- A hosted Docusaurus site (`ng-starters.catesworks.dev`, via Vercel) that
   explains architecture, usage, and installation, with enough "why should I
   care" energy that a visitor wants to install immediately.
 - A skills catalog: one summary table (name / purpose / use case) covering
@@ -89,7 +89,7 @@ Keep all existing technical content (purpose, relationship to
 
 Use the connected Vercel MCP tool to create a project rooted at `website/`,
 connect it to this repo, deploy, and attach the custom domain
-`ng-starters.catesdev.sh`. DNS-side CNAME confirmation on `catesdev.sh` is
+`ng-starters.catesworks.dev`. DNS-side CNAME confirmation on `catesworks.dev` is
 the user's responsibility once Vercel returns the target record.
 
 ## Risks / open questions
