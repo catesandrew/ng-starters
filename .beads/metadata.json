@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "ng_starters",
+  "project_id": "62c63b6b-fc40-4459-be25-d947260b5286"
+}
