@@ -1,5 +1,7 @@
 # ng-starters
 
+**Tags:** `skills` `monorepo`
+
 **Angular Playwright testing, minus the flaky waits and the copy-pasted
 selectors.** `ng-starters` is a family of Claude Code skills that turns
 "write a `data-testid`, cross your fingers, add a `waitForTimeout`" into a
