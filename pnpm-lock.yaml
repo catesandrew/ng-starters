@@ -12,6 +12,14 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
 
+  packages/skill-ng-playwright-attribute-waits: {}
+
+  packages/skill-ng-playwright-page-objects: {}
+
+  packages/skill-ng-playwright-testid-attributes: {}
+
+  packages/skill-ng-playwright-testid-catalog: {}
+
 packages:
 
   '@changesets/apply-release-plan@8.0.0':
