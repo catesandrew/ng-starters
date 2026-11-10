@@ -12,3 +12,4 @@ coverage/
 *.db
 .beads-credential-key
 .beads/proxieddb/
+website/static/skills-zips/

@@ -56,6 +56,12 @@ const config: Config = {
     },
   ],
 
+  plugins: [
+    [
+      '@cogs/skills-site/plugin',
+      {installTemplate: 'skills add git@github.com:catesandrew/ng-starters.git --skill skills/{name} -g'},
+    ],
+  ],
   presets: [
     [
       'classic',
@@ -98,6 +104,7 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
+        {to: '/skills', label: 'Skills', position: 'left'},
         {
           href: repoUrl,
           label: 'GitHub',

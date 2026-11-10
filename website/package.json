@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@cogs/skills-site": "^0.2.0",
     "@docusaurus/core": "3.10.2",
     "@docusaurus/preset-classic": "3.10.2",
     "@easyops-cn/docusaurus-search-local": "0.55.3",
