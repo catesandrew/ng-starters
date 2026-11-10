@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@cogs/skills-site':
+        specifier: ^0.2.0
+        version: 0.2.0(react@19.2.8)
       '@docusaurus/core':
         specifier: 3.10.2
         version: 3.10.2(@mdx-js/react@3.1.1(@types/react@19.2.18)(react@19.2.8))(debug@4.4.3)(postcss@8.5.26)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@5.9.3)
@@ -716,6 +719,11 @@ packages:
   '@babel/types@7.29.8':
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
+
+  '@cogs/skills-site@0.2.0':
+    resolution: {integrity: sha512-HXrgLqMwdZ5vGPJXt4sdVPuMwBAqBs9sD1XtsJiOmu6lBIky3zNLW0Qc5w+H6ybvRyVZeM5QG+zGFOAhlvpoNQ==}
+    peerDependencies:
+      react: ^19.0.0
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -2820,6 +2828,9 @@ packages:
   feed@4.2.2:
     resolution: {integrity: sha512-u5/sxGfiMfZNtJ3OvQpXcvotFpYkL0n9u9mM2vkui2nGo8b4wvDkJ8gAkYqbA8QpGyFCv3RK0Z+Iv+9veCS9bQ==}
     engines: {node: '>=0.4.0'}
+
+  fflate@0.8.3:
+    resolution: {integrity: sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==}
 
   file-loader@6.2.0:
     resolution: {integrity: sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==}
@@ -6192,6 +6203,11 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
+  '@cogs/skills-site@0.2.0(react@19.2.8)':
+    dependencies:
+      fflate: 0.8.3
+      react: 19.2.8
+
   '@colors/colors@1.5.0':
     optional: true
 
@@ -9269,6 +9285,8 @@ snapshots:
   feed@4.2.2:
     dependencies:
       xml-js: 1.6.11
+
+  fflate@0.8.3: {}
 
   file-loader@6.2.0(webpack@5.109.2(postcss@8.5.26)):
     dependencies:
